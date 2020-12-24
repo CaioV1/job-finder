@@ -1,4 +1,5 @@
 const express = require("express");
+const JobResolver = require("../resolver/JobResolver");
 
 class Server {
 
@@ -17,6 +18,14 @@ class Server {
             console.log(`O servidor está rodando na porta ${PORT}`);
 
         });
+
+    }
+
+    setupMiddlewares(){
+
+        const jobResolver = JobResolver.getInstance();
+
+        this.app.use("/graphql", jobResolver.getMiddleware());
 
     }
 
