@@ -1,6 +1,6 @@
 const express = require("express");
 const JobResolver = require("../resolver/JobResolver");
-const database = require("./src/config/DatabaseConnection");
+const database = require("./DatabaseConnection");
 
 class Server {
 
