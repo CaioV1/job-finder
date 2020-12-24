@@ -4,9 +4,9 @@ class JobController {
 
     async job({id}){
 
-        const listJobs = await Job.findAll({ where: { jobId: id} });
+        const job = await Job.findAll({ where: { jobId: id} });
 
-        return listJobs;
+        return job;
 
     }
 
@@ -18,7 +18,7 @@ class JobController {
 
     }
 
-    createJob({title, description, salary, companyName, contactEmail}){
+    async createJob({title, description, salary, companyName, contactEmail}){
 
         const job = {
 
@@ -30,15 +30,9 @@ class JobController {
 
         }
 
-        Job.create(job).then((data) => {
+        const jobCreated = await Job.create(job);
 
-            return data;
-
-        }).catch((error) => {
-
-            console.log(error);
-
-        });
+        return jobCreated;
 
     }
 
