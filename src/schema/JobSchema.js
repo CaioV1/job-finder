@@ -20,7 +20,7 @@ class JobSchema {
         
             type Job {
 
-                jobId: ID
+                id: ID
                 title: String
                 description: String
                 salary: Float
