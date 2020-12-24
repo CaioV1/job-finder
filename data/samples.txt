@@ -1,0 +1,44 @@
+// const sqlite = require("sqlite3");
+
+// const db = new sqlite.Database("./data/app.db");
+
+// db.run("DROP TABLE jobs");
+// db.run("CREATE TABLE jobs(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, salary REAL, companyName TEXT, contactEmail TEXT, createdAt TEXT, updatedAt TEXT)");
+// db.close();
+
+
+
+
+
+# mutation{
+  
+#   createJob(
+#     title: "NodeJS Developer",
+#     description: "Develop Backend Apps in NodeJS",
+#     companyName: "Noante Ltda.",
+#     contactEmail: "caio.morais@noante.com.br",
+#     salary: 8000.00
+#   ){
+#     id,
+#     title,
+#     description,
+#     companyName,
+#     contactEmail,
+#     salary
+#   }
+  
+# }
+
+# {
+  
+#   jobs {
+    
+#     id,
+#     title,
+#     description,
+#     companyName,
+#     contactEmail,
+#     salary
+#   }
+  
+# }

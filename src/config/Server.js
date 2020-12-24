@@ -1,11 +1,14 @@
 const express = require("express");
 const JobResolver = require("../resolver/JobResolver");
+const database = require("./src/config/DatabaseConnection");
 
 class Server {
 
     constructor(){
 
         this.app = express();
+        this.setupMiddlewares();
+        database.connect();
 
     }
 
