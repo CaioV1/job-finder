@@ -1,20 +1,20 @@
+const Job = require("../model/Job");
+
 class JobController {
 
-    constructor(){
+    async job({id}){
 
-        this.arrayJob = [];
+        const listJobs = await Job.findAll({ where: { jobId: id} });
 
-    }
-
-    job({id}){
-
-        return this.arrayJob[id];
+        return listJobs;
 
     }
 
-    jobs(){
+    async jobs(){
 
-        return this.arrayJob;
+        const listJobs = await Job.findAll();
+
+        return listJobs;
 
     }
 
@@ -22,7 +22,6 @@ class JobController {
 
         const job = {
 
-            jobId: 1,
             title: title,
             description: description,
             salary: salary,
@@ -31,7 +30,15 @@ class JobController {
 
         }
 
-        this.arrayJob.push(job);
+        Job.create(job).then((data) => {
+
+            return data;
+
+        }).catch((error) => {
+
+            console.log(error);
+
+        });
 
     }
 
